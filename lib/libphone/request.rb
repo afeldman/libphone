@@ -32,9 +32,6 @@ module LibPhone
     class << self
       def phone(phonenumber, config_file)
         config = LibPhone::PhoneConfig.instance(config_file)
-
-        p config
-
         res = nil
         begin
           res = HTTParty.get(
