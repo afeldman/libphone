@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install libphone_rb
+    $ gem install libphone
 
 ## Usage
 
