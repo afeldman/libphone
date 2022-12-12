@@ -32,8 +32,7 @@ module LibPhone
       when ".xml"
         @config = Config.from_xml(content)
       else
-        p "cannot find data extention use default setting"
-        p @config
+        @config
       end
     end
 
