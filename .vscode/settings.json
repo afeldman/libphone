@@ -1,9 +1,6 @@
 {
   // This one forces the tab to be **space**
   "editor.insertSpaces": true,
-  "cSpell.words": [
-    "OSMA"
-  ],
   "ruby.rubocop.onSave": true,
   "editor.formatOnSaveTimeout": 5000,
   "editor.formatOnSave": true,
