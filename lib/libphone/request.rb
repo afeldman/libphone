@@ -30,8 +30,13 @@ module LibPhone
     end
 
     class << self
-      def phone(phonenumber, config_file)
-        config = LibPhone::PhoneConfig.instance(config_file)
+      def phone(phonenumber, config_file = nil, host = nil, verify = nil)
+        config = if !config_file.nil?
+                   LibPhone::PhoneConfig.from_file(config_file)
+                 else
+                   LibPhone::PhoneConfig.instance(host, verify)
+                 end
+
         res = nil
         begin
           res = HTTParty.get(
