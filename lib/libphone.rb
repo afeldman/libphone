@@ -15,7 +15,6 @@ module LibPhone
                     phonenumber
                   end
 
-    p config_file
     LibPhone::Phone.phone(phonenumber, config_file)
   end
 
