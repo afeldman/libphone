@@ -24,26 +24,30 @@ module LibPhone
     end
 
     def self.from_file(config_file)
-      config = Config.new
+      config = PhoneConfig.instance
 
       if !config_file.nil? && File.exist?(config_file)
+
+        info = nil
         content = File.read(config_file)
 
         case File.extname(config_file).downcase
         when ".tml", ".toml"
-          config = Config.from_toml(content)
+          info = Config.from_toml(content)
         when ".yml", ".yaml"
-          config = Config.from_yaml(content)
+          info = Config.from_yaml(content)
         when ".json", ".js"
-          config = Config.from_json(content)
+          info = Config.from_json(content)
         when ".xml"
-          config = Config.from_xml(content)
+          info = Config.from_xml(content)
         else
           p "wrong datatype"
         end
 
+        config.config = info
       end
-      PhoneConfig.instance(config)
+
+      config
     end
 
     def self.instance(host = nil, verify = nil)
